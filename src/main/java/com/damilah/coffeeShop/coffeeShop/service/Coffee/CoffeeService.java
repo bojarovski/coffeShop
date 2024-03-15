@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface CoffeeService {
     List<Coffee> findAll();
+    List<Coffee> findCoffeesWithIngredientName(int ingredientName);
 }

@@ -1,8 +1,5 @@
 package com.damilah.coffeeShop.coffeeShop.rest;
 
-import com.damilah.coffeeShop.coffeeShop.dao.Coffee.CoffeeDAO;
-import com.damilah.coffeeShop.coffeeShop.dao.Ingredient.IngredientDAO;
-import com.damilah.coffeeShop.coffeeShop.entity.Coffee;
 import com.damilah.coffeeShop.coffeeShop.entity.Ingredient;
 import com.damilah.coffeeShop.coffeeShop.service.Ingredient.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
