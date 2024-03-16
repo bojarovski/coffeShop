@@ -11,5 +11,6 @@ public interface CoffeeRepository extends JpaRepository<Coffee, Integer> {
             "INNER JOIN coffee_ingredient ci ON c.id = ci.coffee_id " +
             "INNER JOIN ingredient i ON ci.ingredient_id = i.id " +
             "WHERE i.id = :ingredientName", nativeQuery = true)
+
     List<Coffee> findCoffeesWithIngredientName(int ingredientName);
 }

@@ -20,7 +20,49 @@ public class CoffeeServiceImpl implements CoffeeService{
     }
 
     @Override
+    public Coffee findById(int theId) {
+        return coffeeRepository.findById(theId)
+                .orElseThrow(() -> new RuntimeException("Did not find coffee id - " + theId));
+    }
+    @Override
     public List<Coffee> findCoffeesWithIngredientName(int ingredientName) {
         return coffeeRepository.findCoffeesWithIngredientName(ingredientName);
     }
+
+    @Override
+    public Coffee save(Coffee theCoffee) {
+        return coffeeRepository.save(theCoffee);
+    }
+
+    @Override
+    public void deleteById(int theId) {
+        coffeeRepository.deleteById(theId);
+    }
 }
+
+//
+//@Service
+//public class UserServiceImpl implements UserService{
+//
+//    private UserRepository userRepository;
+//
+//    public  UserServiceImpl(UserRepository theUserRepository){
+//        userRepository = theUserRepository;
+//    }
+//    @Override
+//    public List<User> findAll() {
+//        return userRepository.findAll();
+//    }
+//
+//
+//
+//    @Override
+//    public User save(User theUser) {
+//        return userRepository.save(theUser);
+//    }
+//
+//    @Override
+//    public void deleteById(int theId) {
+//        userRepository.deleteById(theId);
+//    }
+//}
