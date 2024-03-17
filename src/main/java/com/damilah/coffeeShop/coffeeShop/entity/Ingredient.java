@@ -2,6 +2,9 @@ package com.damilah.coffeeShop.coffeeShop.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name="ingredient")
 public class Ingredient {
@@ -16,6 +19,13 @@ public class Ingredient {
     @Column(name = "description")
     private String description;
 
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+                    CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinTable(name = "coffee_ingredient",
+    joinColumns = @JoinColumn(name = "ingredient_id"),
+    inverseJoinColumns = @JoinColumn(name= "coffee_id"))
+    private List<Coffee> coffees;
     public Ingredient(){}
 
     public Ingredient(String name, String description) {
@@ -46,6 +56,24 @@ public class Ingredient {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public List<Coffee> getCoffees() {
+        return coffees;
+    }
+
+    public void setCoffees(List<Coffee> coffees) {
+        this.coffees = coffees;
+    }
+
+//    Add convenient method for add Coffee
+    public void addCoffee(Coffee theCoffee){
+        if(coffees == null ){
+            coffees = new ArrayList<>();
+        }
+        coffees.add(theCoffee);
+    }
+
+
 
     @Override
     public String toString() {
