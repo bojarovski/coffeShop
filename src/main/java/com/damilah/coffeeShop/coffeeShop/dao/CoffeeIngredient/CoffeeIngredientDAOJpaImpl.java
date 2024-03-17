@@ -1,6 +1,7 @@
 package com.damilah.coffeeShop.coffeeShop.dao.CoffeeIngredient;
 
 import com.damilah.coffeeShop.coffeeShop.entity.Coffee;
+import com.damilah.coffeeShop.coffeeShop.entity.CoffeeIngredient;
 import com.damilah.coffeeShop.coffeeShop.entity.Ingredient;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
@@ -40,9 +41,15 @@ public class CoffeeIngredientDAOJpaImpl implements CoffeeIngredientDAO {
         return query.getSingleResult();
     }
 
-    @Override
     @Transactional
-    public void update(Coffee tempCoffee) {
-        entityManager.merge((tempCoffee));
+    public void deleteByCoffeeId(Integer coffeeId) {
+        entityManager.createQuery("DELETE FROM CoffeeIngredient ci WHERE ci.coffeeId = :coffeeId")
+                .setParameter("coffeeId", coffeeId)
+                .executeUpdate();
+    }
+
+    @Transactional
+    public void save(CoffeeIngredient coffeeIngredient) {
+        entityManager.persist(coffeeIngredient);
     }
 }

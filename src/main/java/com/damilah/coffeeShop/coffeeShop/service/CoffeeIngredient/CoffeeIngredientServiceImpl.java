@@ -2,6 +2,7 @@ package com.damilah.coffeeShop.coffeeShop.service.CoffeeIngredient;
 
 import com.damilah.coffeeShop.coffeeShop.dao.CoffeeIngredient.CoffeeIngredientDAOJpaImpl;
 import com.damilah.coffeeShop.coffeeShop.entity.Coffee;
+import com.damilah.coffeeShop.coffeeShop.entity.CoffeeIngredient;
 import com.damilah.coffeeShop.coffeeShop.entity.Ingredient;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,13 @@ public class CoffeeIngredientServiceImpl implements CoffeeIngredientService{
     }
 
     @Override
-    public void update(Coffee tempCoffee) {
-        coffeeIngredientDAOJpa.update(tempCoffee);
+    public void deleteByCoffeeId(Integer coffeeId) {
+        coffeeIngredientDAOJpa.deleteByCoffeeId(coffeeId);
     }
+
+    @Override
+    public void save(CoffeeIngredient coffeeIngredient) {
+        coffeeIngredientDAOJpa.save(coffeeIngredient);
+    }
+
 }
