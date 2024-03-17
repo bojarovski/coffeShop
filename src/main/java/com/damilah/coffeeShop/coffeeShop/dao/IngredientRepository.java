@@ -1,8 +1,6 @@
 package com.damilah.coffeeShop.coffeeShop.dao;
 
-import com.damilah.coffeeShop.coffeeShop.entity.Coffee;
 import com.damilah.coffeeShop.coffeeShop.entity.Ingredient;
-import com.damilah.coffeeShop.coffeeShop.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
