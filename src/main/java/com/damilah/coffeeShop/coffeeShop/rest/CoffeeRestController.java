@@ -23,7 +23,7 @@ public class CoffeeRestController {
         return coffeeService.findAll();
     }
 
-    @GetMapping("/ingredient/{ingredientId}/coffees/")
+    @GetMapping("/ingredient/{ingredientId}/coffees")
     public List<Coffee> getCoffeesWithIngredient(@PathVariable int ingredientId) {
         List<Coffee> coffees = coffeeService.findCoffeesWithIngredientName(ingredientId);
         if (coffees.isEmpty()) {

@@ -24,14 +24,14 @@ public class Ingredient {
     private String description;
 
 
-    @JsonIgnore
-    @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {CascadeType.PERSIST, CascadeType.MERGE,
-                    CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinTable(name = "coffee_ingredient",
-    joinColumns = @JoinColumn(name = "ingredient_id"),
-    inverseJoinColumns = @JoinColumn(name= "coffee_id"))
-    private List<Coffee> coffees;
+//    @JsonIgnore
+//    @ManyToMany(fetch = FetchType.LAZY,
+//            cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+//                    CascadeType.DETACH, CascadeType.REFRESH})
+//    @JoinTable(name = "coffee_ingredient",
+//    joinColumns = @JoinColumn(name = "ingredient_id"),
+//    inverseJoinColumns = @JoinColumn(name= "coffee_id"))
+//    private List<Coffee> coffees;
     public Ingredient(){}
 
     public Ingredient(String name, String description) {
@@ -63,21 +63,22 @@ public class Ingredient {
         this.description = description;
     }
 
-    public List<Coffee> getCoffees() {
-        return coffees;
-    }
+//    public List<Coffee> getCoffees() {
+//        return coffees;
+//    }
+//
+//    public void setCoffees(List<Coffee> coffees) {
+//        this.coffees = coffees;
+//    }
+//
+////    Add convenient method for add Coffee
+//    public void addCoffee(Coffee theCoffee){
+//        if(coffees == null ){
+//            coffees = new ArrayList<>();
+//        }
+//        coffees.add(theCoffee);
+//    }
 
-    public void setCoffees(List<Coffee> coffees) {
-        this.coffees = coffees;
-    }
-
-//    Add convenient method for add Coffee
-    public void addCoffee(Coffee theCoffee){
-        if(coffees == null ){
-            coffees = new ArrayList<>();
-        }
-        coffees.add(theCoffee);
-    }
 
     @Override
     public String toString() {
@@ -85,7 +86,6 @@ public class Ingredient {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", coffees=" + coffees +
                 '}';
     }
 }

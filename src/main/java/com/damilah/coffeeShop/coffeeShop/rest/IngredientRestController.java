@@ -30,4 +30,12 @@ public class IngredientRestController {
         theIngredient.setId(0);
         return ingredientService.save(theIngredient);
     }
+    @GetMapping("/coffee/{coffeeId}/ingredient")
+    public List<Ingredient> getCoffeesWithIngredient(@PathVariable int coffeeId) {
+        List<Ingredient> ingredients = ingredientService.findIngredientsByCoffeeId(coffeeId);
+        if (ingredients.isEmpty()) {
+            throw new RuntimeException("Error");
+        }
+        return ingredients;
+    }
 }

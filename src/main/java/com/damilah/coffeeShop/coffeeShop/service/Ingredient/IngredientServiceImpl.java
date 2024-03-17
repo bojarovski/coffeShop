@@ -36,7 +36,9 @@ public class IngredientServiceImpl implements IngredientService{
     }
 
     @Override
-    public List<Ingredient> findCoffeesWithIngredientName(int coffeeId) {
-        return null;
+    public List<Ingredient> findIngredientsByCoffeeId(int coffeeId) {
+        return ingredientRepository.findIngredientsByCoffeeId(coffeeId);
     }
+
+
 }
