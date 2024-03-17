@@ -9,6 +9,6 @@ public interface CoffeeService {
     Coffee findById(int theId);
     Coffee save(Coffee theCoffee);
     void deleteById(int theId);
-    List<Coffee> findCoffeesWithIngredientName(int ingredientName);
+    List<Coffee> findCoffeesWithIngredientName(int ingredientId);
 }
 

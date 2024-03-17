@@ -40,29 +40,3 @@ public class CoffeeServiceImpl implements CoffeeService{
     }
 }
 
-//
-//@Service
-//public class UserServiceImpl implements UserService{
-//
-//    private UserRepository userRepository;
-//
-//    public  UserServiceImpl(UserRepository theUserRepository){
-//        userRepository = theUserRepository;
-//    }
-//    @Override
-//    public List<User> findAll() {
-//        return userRepository.findAll();
-//    }
-//
-//
-//
-//    @Override
-//    public User save(User theUser) {
-//        return userRepository.save(theUser);
-//    }
-//
-//    @Override
-//    public void deleteById(int theId) {
-//        userRepository.deleteById(theId);
-//    }
-//}

@@ -4,6 +4,7 @@ import com.damilah.coffeeShop.coffeeShop.entity.Coffee;
 import com.damilah.coffeeShop.coffeeShop.entity.Ingredient;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -32,10 +33,16 @@ public class CoffeeIngredientDAOJpaImpl implements CoffeeIngredientDAO {
     @Override
     public Coffee findIngredientByCoffeeId(int theId) {
         TypedQuery<Coffee> query = entityManager.createQuery(
-                "select c from Coffee c JOIN FETCH c.ingredients where c.id = :data", Coffee.class
+                "select c.ingredients from Coffee c JOIN FETCH c.ingredients where c.id = :data", Coffee.class
         );
         query.setParameter("data", theId);
 
         return query.getSingleResult();
+    }
+
+    @Override
+    @Transactional
+    public void update(Coffee tempCoffee) {
+        entityManager.merge((tempCoffee));
     }
 }

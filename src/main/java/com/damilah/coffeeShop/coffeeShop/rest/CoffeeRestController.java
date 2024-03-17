@@ -23,9 +23,9 @@ public class CoffeeRestController {
         return coffeeService.findAll();
     }
 
-    @GetMapping("/coffees/{ingredientName}")
-    public List<Coffee> getCoffeesWithIngredient(@PathVariable int ingredientName) {
-        List<Coffee> coffees = coffeeService.findCoffeesWithIngredientName(ingredientName);
+    @GetMapping("/ingredient/{ingredientId}/coffees/")
+    public List<Coffee> getCoffeesWithIngredient(@PathVariable int ingredientId) {
+        List<Coffee> coffees = coffeeService.findCoffeesWithIngredientName(ingredientId);
         if (coffees.isEmpty()) {
             throw new RuntimeException("Error");
         }

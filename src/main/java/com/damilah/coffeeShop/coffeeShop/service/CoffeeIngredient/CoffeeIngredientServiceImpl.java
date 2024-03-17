@@ -22,4 +22,9 @@ public class CoffeeIngredientServiceImpl implements CoffeeIngredientService{
     public Ingredient findCoffeeByIngredientId(int theId) {
         return coffeeIngredientDAOJpa.findCoffeeByIngredientId(theId);
     }
+
+    @Override
+    public void update(Coffee tempCoffee) {
+        coffeeIngredientDAOJpa.update(tempCoffee);
+    }
 }

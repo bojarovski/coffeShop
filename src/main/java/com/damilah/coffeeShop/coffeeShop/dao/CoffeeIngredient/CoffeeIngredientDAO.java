@@ -7,4 +7,7 @@ public interface CoffeeIngredientDAO {
 
     Ingredient findCoffeeByIngredientId (int theId);
     Coffee findIngredientByCoffeeId(int theId);
+
+    void update (Coffee tempCoffee);
+
 }
