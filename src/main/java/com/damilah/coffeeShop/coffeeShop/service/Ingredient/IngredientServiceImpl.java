@@ -1,6 +1,5 @@
 package com.damilah.coffeeShop.coffeeShop.service.Ingredient;
 
-import com.damilah.coffeeShop.coffeeShop.dao.Ingredient.IngredientDAO;
 import com.damilah.coffeeShop.coffeeShop.dao.IngredientRepository;
 import com.damilah.coffeeShop.coffeeShop.entity.Ingredient;
 import org.springframework.stereotype.Service;

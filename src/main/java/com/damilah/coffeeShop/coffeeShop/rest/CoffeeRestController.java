@@ -18,8 +18,6 @@ public class CoffeeRestController {
         coffeeService = theCoffeeService;
     }
 
-
-    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/coffees")
     public List<Coffee> findAll(){
         return coffeeService.findAll();
