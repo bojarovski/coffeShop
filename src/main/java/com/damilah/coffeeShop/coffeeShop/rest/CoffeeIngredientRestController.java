@@ -8,6 +8,7 @@ import com.damilah.coffeeShop.coffeeShop.service.CoffeeIngredient.CoffeeIngredie
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Array;
@@ -49,11 +50,12 @@ public class CoffeeIngredientRestController {
     }
 
     @PostMapping("/add/ingredient")
+    @Transactional
     public ResponseEntity<Void> addCoffeeIngredient(@RequestBody CoffeeIngredientRequest request) {
         Integer coffeeId = request.getCoffee_id();
         List<Integer> ingredientIds = request.getIngredient_ids();
         Integer quantity = request.getQuantity();
-
+        coffeeIngredientService.deleteByCoffeeId(coffeeId);
         // Populate CoffeeIngredient entities based on the request data
         for (Integer ingredientId : ingredientIds) {
             CoffeeIngredient coffeeIngredient = new CoffeeIngredient();
