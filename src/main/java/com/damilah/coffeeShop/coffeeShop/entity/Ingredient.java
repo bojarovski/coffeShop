@@ -1,5 +1,9 @@
 package com.damilah.coffeeShop.coffeeShop.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -19,6 +23,8 @@ public class Ingredient {
     @Column(name = "description")
     private String description;
 
+
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.MERGE,
                     CascadeType.DETACH, CascadeType.REFRESH})
@@ -73,14 +79,13 @@ public class Ingredient {
         coffees.add(theCoffee);
     }
 
-
-
     @Override
     public String toString() {
         return "Ingredient{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", coffees=" + coffees +
                 '}';
     }
 }

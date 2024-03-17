@@ -14,12 +14,12 @@ public class CoffeeIngredientServiceImpl implements CoffeeIngredientService{
         coffeeIngredientDAOJpa = theCoffeeIngredientDAOJpaImpl;
     }
     @Override
-    public Ingredient findIngredientByCoffeeId(int theId) {
+    public Coffee findIngredientByCoffeeId(int theId) {
         return coffeeIngredientDAOJpa.findIngredientByCoffeeId(theId);
     }
 
     @Override
-    public Coffee findCoffeeByIngredientId(int theId) {
+    public Ingredient findCoffeeByIngredientId(int theId) {
         return coffeeIngredientDAOJpa.findCoffeeByIngredientId(theId);
     }
 }

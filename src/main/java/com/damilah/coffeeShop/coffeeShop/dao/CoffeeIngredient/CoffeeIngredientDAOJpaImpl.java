@@ -20,7 +20,7 @@ public class CoffeeIngredientDAOJpaImpl implements CoffeeIngredientDAO {
 
 
     @Override
-    public Ingredient findIngredientByCoffeeId(int theId) {
+    public Ingredient findCoffeeByIngredientId(int theId) {
         TypedQuery<Ingredient> query = entityManager.createQuery(
                 "select i from Ingredient i JOIN FETCH i.coffees where i.id = :data", Ingredient.class
         );
@@ -30,7 +30,7 @@ public class CoffeeIngredientDAOJpaImpl implements CoffeeIngredientDAO {
     }
 
     @Override
-    public Coffee findCoffeeByIngredientId(int theId) {
+    public Coffee findIngredientByCoffeeId(int theId) {
         TypedQuery<Coffee> query = entityManager.createQuery(
                 "select c from Coffee c JOIN FETCH c.ingredients where c.id = :data", Coffee.class
         );
